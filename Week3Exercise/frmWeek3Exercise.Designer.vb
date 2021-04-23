@@ -140,7 +140,7 @@ Partial Class frmWeek3Exercise
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(800, 460)
         Me.Controls.Add(Me.btnPop)
         Me.Controls.Add(Me.lstEdu)
         Me.Controls.Add(Me.cboCitizen)

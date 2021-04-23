@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmWeek3
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmWeek3
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.mnuFile = New System.Windows.Forms.MenuStrip()
@@ -36,7 +36,6 @@ Partial Class frmWeek3
         Me.btn3 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.cbo1 = New System.Windows.Forms.ComboBox()
-        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.mnuFile.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -133,7 +132,7 @@ Partial Class frmWeek3
         Me.Panel1.Controls.Add(Me.btn1)
         Me.Panel1.Location = New System.Drawing.Point(12, 124)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(157, 137)
+        Me.Panel1.Size = New System.Drawing.Size(75, 81)
         Me.Panel1.TabIndex = 6
         '
         'cbo1
@@ -146,21 +145,11 @@ Partial Class frmWeek3
         Me.cbo1.Size = New System.Drawing.Size(121, 21)
         Me.cbo1.TabIndex = 7
         '
-        'WebBrowser1
-        '
-        Me.WebBrowser1.Location = New System.Drawing.Point(465, 95)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(250, 250)
-        Me.WebBrowser1.TabIndex = 8
-        Me.WebBrowser1.Url = New System.Uri("https://www.google.com", System.UriKind.Absolute)
-        '
         'frmWeek3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.WebBrowser1)
         Me.Controls.Add(Me.cbo1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnShowClock)
@@ -190,5 +179,4 @@ Partial Class frmWeek3
     Friend WithEvents btn3 As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents cbo1 As ComboBox
-    Friend WithEvents WebBrowser1 As WebBrowser
 End Class

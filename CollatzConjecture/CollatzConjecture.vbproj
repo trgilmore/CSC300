@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4CA66462-8DE8-4750-8E11-6C05E2A452E0}</ProjectGuid>
+    <ProjectGuid>{C510C18E-975F-4CDA-A841-A7604511470D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Week3.My.MyApplication</StartupObject>
-    <RootNamespace>Week3</RootNamespace>
-    <AssemblyName>Week3</AssemblyName>
+    <StartupObject>CollatzConjecture.My.MyApplication</StartupObject>
+    <RootNamespace>CollatzConjecture</RootNamespace>
+    <AssemblyName>CollatzConjecture</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Week3.xml</DocumentationFile>
+    <DocumentationFile>CollatzConjecture.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Week3.xml</DocumentationFile>
+    <DocumentationFile>CollatzConjecture.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,17 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmTest.Designer.vb">
-      <DependentUpon>frmTest.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmTest.vb">
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWeek3.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWeek3.Designer.vb">
-      <DependentUpon>frmWeek3.vb</DependentUpon>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -103,8 +97,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmWeek3.resx">
-      <DependentUpon>frmWeek3.vb</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
