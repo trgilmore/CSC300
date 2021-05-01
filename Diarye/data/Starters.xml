@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Starter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Italian Stallion</Name>
+  <FeedingRecipe>
+    <string>Generic AP -- 100%</string>
+  </FeedingRecipe>
+  <StarterWeight>50</StarterWeight>
+  <FlourWeight>50</FlourWeight>
+  <WaterWeight>50</WaterWeight>
+  <Schedule>24</Schedule>
+  <CreationDate>2020-12-01T00:00:00</CreationDate>
+  <Hibernation>false</Hibernation>
+  <HibernationType />
+  <AmbientTemp>75</AmbientTemp>
+  <AmbientHumidity>40</AmbientHumidity>
+</Starter><?xml version="1.0" encoding="utf-8"?>
+<Starter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Cory</Name>
+  <FeedingRecipe>
+    <string>BRM Organic Rye -- 50%</string>
+    <string>Generic AP -- 50%</string>
+  </FeedingRecipe>
+  <StarterWeight>50</StarterWeight>
+  <FlourWeight>50</FlourWeight>
+  <WaterWeight>50</WaterWeight>
+  <Schedule>24</Schedule>
+  <CreationDate>2021-04-30T00:00:00-07:00</CreationDate>
+  <Hibernation>false</Hibernation>
+  <HibernationType />
+  <AmbientTemp>75</AmbientTemp>
+  <AmbientHumidity>40</AmbientHumidity>
+</Starter>
