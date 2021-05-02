@@ -97,6 +97,12 @@
       <DependentUpon>Diarye.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBakeLog.Designer.vb">
+      <DependentUpon>frmBakeLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBakeLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmNewStarter.Designer.vb">
       <DependentUpon>frmNewStarter.vb</DependentUpon>
     </Compile>
@@ -128,6 +134,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Diarye.resx">
       <DependentUpon>Diarye.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBakeLog.resx">
+      <DependentUpon>frmBakeLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewStarter.resx">
       <DependentUpon>frmNewStarter.vb</DependentUpon>
@@ -171,7 +180,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\BakeLog.txt" />
     <Content Include="data\Flours.txt" />
+    <Content Include="data\Recipes.txt" />
     <Content Include="data\Starters.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

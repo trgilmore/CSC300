@@ -26,7 +26,6 @@ Partial Class frmRecipes
         Me.txtRecipeTitle = New System.Windows.Forms.TextBox()
         Me.lblRecipeFlour = New System.Windows.Forms.Label()
         Me.lstRecipeFlours = New System.Windows.Forms.ListBox()
-        Me.btnAddFlourType = New System.Windows.Forms.Button()
         Me.btnAddFlourToRecipe = New System.Windows.Forms.Button()
         Me.lblRecipeFlourWeight = New System.Windows.Forms.Label()
         Me.nudRecipeFlourWeight = New System.Windows.Forms.NumericUpDown()
@@ -67,6 +66,8 @@ Partial Class frmRecipes
         Me.btnRecipeSave = New System.Windows.Forms.Button()
         Me.btnRecipeClear = New System.Windows.Forms.Button()
         Me.btnRecipeCancel = New System.Windows.Forms.Button()
+        Me.lstFlourRecipe = New System.Windows.Forms.ListBox()
+        Me.lblFlourRecipe = New System.Windows.Forms.Label()
         CType(Me.nudRecipeFlourWeight, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudRecipeSaltWeight, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudRecipeWaterWeight, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,23 +111,14 @@ Partial Class frmRecipes
         Me.lstRecipeFlours.FormattingEnabled = True
         Me.lstRecipeFlours.Location = New System.Drawing.Point(11, 108)
         Me.lstRecipeFlours.Name = "lstRecipeFlours"
-        Me.lstRecipeFlours.Size = New System.Drawing.Size(122, 134)
+        Me.lstRecipeFlours.Size = New System.Drawing.Size(122, 108)
         Me.lstRecipeFlours.TabIndex = 8
-        '
-        'btnAddFlourType
-        '
-        Me.btnAddFlourType.Location = New System.Drawing.Point(11, 248)
-        Me.btnAddFlourType.Name = "btnAddFlourType"
-        Me.btnAddFlourType.Size = New System.Drawing.Size(123, 31)
-        Me.btnAddFlourType.TabIndex = 9
-        Me.btnAddFlourType.Text = "Add Flour Type"
-        Me.btnAddFlourType.UseVisualStyleBackColor = True
         '
         'btnAddFlourToRecipe
         '
         Me.btnAddFlourToRecipe.Location = New System.Drawing.Point(139, 153)
         Me.btnAddFlourToRecipe.Name = "btnAddFlourToRecipe"
-        Me.btnAddFlourToRecipe.Size = New System.Drawing.Size(58, 126)
+        Me.btnAddFlourToRecipe.Size = New System.Drawing.Size(58, 64)
         Me.btnAddFlourToRecipe.TabIndex = 10
         Me.btnAddFlourToRecipe.Text = "Add Flour To Recipe"
         Me.btnAddFlourToRecipe.UseVisualStyleBackColor = True
@@ -491,11 +483,30 @@ Partial Class frmRecipes
         Me.btnRecipeCancel.Text = "Cancel"
         Me.btnRecipeCancel.UseVisualStyleBackColor = True
         '
+        'lstFlourRecipe
+        '
+        Me.lstFlourRecipe.FormattingEnabled = True
+        Me.lstFlourRecipe.Location = New System.Drawing.Point(10, 238)
+        Me.lstFlourRecipe.Name = "lstFlourRecipe"
+        Me.lstFlourRecipe.Size = New System.Drawing.Size(186, 43)
+        Me.lstFlourRecipe.TabIndex = 47
+        '
+        'lblFlourRecipe
+        '
+        Me.lblFlourRecipe.AutoSize = True
+        Me.lblFlourRecipe.Location = New System.Drawing.Point(12, 222)
+        Me.lblFlourRecipe.Name = "lblFlourRecipe"
+        Me.lblFlourRecipe.Size = New System.Drawing.Size(67, 13)
+        Me.lblFlourRecipe.TabIndex = 48
+        Me.lblFlourRecipe.Text = "Flour Recipe"
+        '
         'frmRecipes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblFlourRecipe)
+        Me.Controls.Add(Me.lstFlourRecipe)
         Me.Controls.Add(Me.btnRecipeCancel)
         Me.Controls.Add(Me.btnRecipeClear)
         Me.Controls.Add(Me.btnRecipeSave)
@@ -528,7 +539,6 @@ Partial Class frmRecipes
         Me.Controls.Add(Me.nudRecipeFlourWeight)
         Me.Controls.Add(Me.lblRecipeFlourWeight)
         Me.Controls.Add(Me.btnAddFlourToRecipe)
-        Me.Controls.Add(Me.btnAddFlourType)
         Me.Controls.Add(Me.lstRecipeFlours)
         Me.Controls.Add(Me.lblRecipeFlour)
         Me.Controls.Add(Me.txtRecipeTitle)
@@ -554,7 +564,6 @@ Partial Class frmRecipes
     Friend WithEvents txtRecipeTitle As TextBox
     Friend WithEvents lblRecipeFlour As Label
     Friend WithEvents lstRecipeFlours As ListBox
-    Friend WithEvents btnAddFlourType As Button
     Friend WithEvents btnAddFlourToRecipe As Button
     Friend WithEvents lblRecipeFlourWeight As Label
     Friend WithEvents nudRecipeFlourWeight As NumericUpDown
@@ -595,4 +604,6 @@ Partial Class frmRecipes
     Friend WithEvents btnRecipeSave As Button
     Friend WithEvents btnRecipeClear As Button
     Friend WithEvents btnRecipeCancel As Button
+    Friend WithEvents lstFlourRecipe As ListBox
+    Friend WithEvents lblFlourRecipe As Label
 End Class

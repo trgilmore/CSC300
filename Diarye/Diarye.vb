@@ -23,4 +23,9 @@ Public Class frmDiaryeMain
     Private Sub btnDeleteStarter_Click(sender As Object, e As EventArgs) Handles btnDeleteStarter.Click
         lstvStarters.Items.RemoveAt(lstvStarters.SelectedIndices(0))
     End Sub
+
+    Private Sub btnBake_Click(sender As Object, e As EventArgs) Handles btnBake.Click
+        frmBakeLog.ShowDialog()
+        frmBakeLog.txtBakeRecipe.Text = lstvRecipes.SelectedItems.IndexOf(0).
+    End Sub
 End Class

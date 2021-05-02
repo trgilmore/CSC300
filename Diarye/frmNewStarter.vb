@@ -1,6 +1,7 @@
 ﻿
 Public Class frmStarter
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSaveStarter.Click
+
         Dim starter1 As New Starter
         starter1.Name = txtStarterName.Text
         For Each flour In lstFeedingRecipe.Items
@@ -30,21 +31,10 @@ Public Class frmStarter
         starter1.AmbientHumidity = CInt(txtAmbHumidity.Text)
 
 
-        Dim str(11) As String
-        Dim itm As ListViewItem
 
-        str(0) = txtStarterName.Text
-        str(1) = dtpCreationDate.Value.Date
-        str(2) = "Business Manager"
-
-
-        itm = New ListViewItem(str)
-
-        frmDiaryeMain.lstvStarters.Items.Insert(0, itm)
         My.Computer.FileSystem.WriteAllText("C:\Users\tgilm\source\repos\Diarye\data\Starters.txt",
         starter1.ToString(), True)
 
-        'starter1.Save()
         clearForm()
         Me.Hide()
     End Sub
@@ -69,7 +59,11 @@ Public Class frmStarter
     End Sub
 
     Private Sub btnAddToFeedingRecipe_Click(sender As Object, e As EventArgs) Handles btnAddToFeedingRecipe.Click
-        lstFeedingRecipe.Items.Add(lstStarterRecipeFlour.SelectedItem & " -- " & txtStarterRecipeFlourPercent.Text & "%")
+        If lstStarterRecipeFlour.SelectedIndex >= 0 Then
+            lstFeedingRecipe.Items.Add(lstStarterRecipeFlour.SelectedItem & " -- " & txtStarterRecipeFlourPercent.Text & "%")
+        Else
+            MsgBox("Please select a flour")
+        End If
     End Sub
 
     Private Sub calcRatio()
