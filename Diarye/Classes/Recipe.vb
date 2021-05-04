@@ -19,72 +19,6 @@
     Public Sub New()
 
     End Sub
-    Public Sub New(recipeTitle As String, recipeFlours As List(Of String), recipeFlourWeight As Integer, recipeSaltWeight As Integer, recipeWaterWeight As Integer, recipeLevain As String, recipeLevainWeight As Integer)
-        m_RecipeTitle = recipeTitle
-        m_RecipeFlours = recipeFlours
-        m_RecipeFlourWeight = recipeFlourWeight
-        m_RecipeSaltWeight = recipeSaltWeight
-        m_RecipeWaterWeight = recipeWaterWeight
-        m_RecipeLevain = recipeLevain
-        m_RecipeLevainWeight = recipeLevainWeight
-
-    End Sub
-    Public Sub New(recipeTitle As String, recipeFlours As List(Of String), recipeFlourWeight As Integer, recipeSaltWeight As Integer, recipeWaterWeight As Integer, recipeLevain As String, recipeLevainWeight As Integer, addition1 As String, additionWeight1 As Integer)
-        m_RecipeTitle = recipeTitle
-        m_RecipeFlours = recipeFlours
-        m_RecipeFlourWeight = recipeFlourWeight
-        m_RecipeSaltWeight = recipeSaltWeight
-        m_RecipeWaterWeight = recipeWaterWeight
-        m_RecipeLevain = recipeLevain
-        m_RecipeLevainWeight = recipeLevainWeight
-        m_Addition1 = addition1
-        m_AdditionWeight1 = additionWeight1
-    End Sub
-    Public Sub New(recipeTitle As String, recipeFlours As List(Of String), recipeFlourWeight As Integer, recipeSaltWeight As Integer, recipeWaterWeight As Integer, recipeLevain As String, recipeLevainWeight As Integer, addition1 As String, additionWeight1 As Integer, addition2 As String, additionWeight2 As Integer)
-        m_RecipeTitle = recipeTitle
-        m_RecipeFlours = recipeFlours
-        m_RecipeFlourWeight = recipeFlourWeight
-        m_RecipeSaltWeight = recipeSaltWeight
-        m_RecipeWaterWeight = recipeWaterWeight
-        m_RecipeLevain = recipeLevain
-        m_RecipeLevainWeight = recipeLevainWeight
-        m_Addition1 = addition1
-        m_AdditionWeight1 = additionWeight1
-        m_Addition2 = addition2
-        m_AdditionWeight2 = additionWeight2
-    End Sub
-    Public Sub New(recipeTitle As String, recipeFlours As List(Of String), recipeFlourWeight As Integer, recipeSaltWeight As Integer, recipeWaterWeight As Integer, recipeLevain As String, recipeLevainWeight As Integer, addition1 As String, additionWeight1 As Integer, addition2 As String, additionWeight2 As Integer, addition3 As String, additionWeight3 As Integer)
-        m_RecipeTitle = recipeTitle
-        m_RecipeFlours = recipeFlours
-        m_RecipeFlourWeight = recipeFlourWeight
-        m_RecipeSaltWeight = recipeSaltWeight
-        m_RecipeWaterWeight = recipeWaterWeight
-        m_RecipeLevain = recipeLevain
-        m_RecipeLevainWeight = recipeLevainWeight
-        m_Addition1 = addition1
-        m_AdditionWeight1 = additionWeight1
-        m_Addition2 = addition2
-        m_AdditionWeight2 = additionWeight2
-        m_Addition3 = addition3
-        m_AdditionWeight3 = additionWeight3
-    End Sub
-    Public Sub New(recipeTitle As String, recipeFlours As List(Of String), recipeFlourWeight As Integer, recipeSaltWeight As Integer, recipeWaterWeight As Integer, recipeLevain As String, recipeLevainWeight As Integer, addition1 As String, additionWeight1 As Integer, addition2 As String, additionWeight2 As Integer, addition3 As String, additionWeight3 As Integer, addition4 As String, additionWeight4 As Integer)
-        m_RecipeTitle = recipeTitle
-        m_RecipeFlours = recipeFlours
-        m_RecipeFlourWeight = recipeFlourWeight
-        m_RecipeSaltWeight = recipeSaltWeight
-        m_RecipeWaterWeight = recipeWaterWeight
-        m_RecipeLevain = recipeLevain
-        m_RecipeLevainWeight = recipeLevainWeight
-        m_Addition1 = addition1
-        m_AdditionWeight1 = additionWeight1
-        m_Addition2 = addition2
-        m_AdditionWeight2 = additionWeight2
-        m_Addition3 = addition3
-        m_AdditionWeight3 = additionWeight3
-        m_Addition4 = addition4
-        m_AdditionWeight4 = additionWeight4
-    End Sub
 
     Property Title As String
         Get
@@ -238,4 +172,33 @@
             Return ((Me.m_RecipeLevainWeight / Me.m_RecipeFlourWeight) * 100)
         End Get
     End Property
+
+    Public Overrides Function ToString() As String
+        Return ("Title: " & Title & vbCrLf &
+                "Flours: " & Me.JoinElements() & vbCrLf &
+                "Flour Weight: " & FlourWeight & vbCrLf &
+                "Salt Weight: " & SaltWeight & vbCrLf &
+                "Water Weight: " & RecipeWaterWeight & vbCrLf &
+                "Levain: " & Levain & vbCrLf &
+                "Levain Weight: " & LevainWeight & vbCrLf &
+                "Addition 1: " & Addition1 & vbCrLf &
+                "Addition 1 Weight: " & AdditionWeight1 & vbCrLf &
+                "Addition 2: " & Addition2 & vbCrLf &
+                "Addition 2 Weight: " & AdditionWeight2 & vbCrLf &
+                "Addition 3: " & Addition3 & vbCrLf &
+                "Addition 3 Weight: " & AdditionWeight3 & vbCrLf &
+                "Addition 4: " & Addition4 & vbCrLf &
+                "Addition 4 Weight: " & AdditionWeight4 & vbCrLf &
+                "Total Dough Weight: " & TotalDoughWeight & vbCrLf &
+                "Recipe Hydration: " & RecipeHydration & vbCrLf &
+                "Levain Percent: " & LevainPercent & vbCrLf & vbCrLf)
+    End Function
+
+    Private Function JoinElements() As String
+        Dim S As String = ""
+        For Each item As String In Flours
+            S &= item & ", "
+        Next
+        Return S
+    End Function
 End Class

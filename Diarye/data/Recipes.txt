@@ -1,1 +1,19 @@
-﻿
+﻿Title: Country Loaf
+Flours: KA Organic Bread Flour -- 810g, Generic WW -- 90g, 
+Flour Weight: 900
+Salt Weight: 16
+Water Weight: 680
+Levain:  Man-dough-lorian
+Levain Weight: 175
+Addition 1: 
+Addition 1 Weight: 0
+Addition 2: 
+Addition 2 Weight: 0
+Addition 3: 
+Addition 3 Weight: 0
+Addition 4: 
+Addition 4 Weight: 0
+Total Dough Weight: 1771
+Recipe Hydration: 75.5555555555556
+Levain Percent: 19.4444444444444
+

@@ -4,45 +4,6 @@ Public Class Starter
 
     End Sub
 
-    Public Sub New(name As String, feedingRecipe As List(Of String), starterWeight As Integer, flourWeight As Integer, waterWeight As Integer, schedule As Integer, creationDate As Date, hibernation As Boolean, hibernationType As String)
-        m_name = name
-        m_FeedingRecipe = feedingRecipe
-        m_StarterWeight = starterWeight
-        m_FlourWeight = flourWeight
-        m_WaterWeight = waterWeight
-        m_Schedule = schedule
-        m_CreationDate = creationDate
-        m_Hibernation = hibernation
-        m_HibernationType = hibernationType
-    End Sub
-
-    Public Sub New(name As String, feedingRecipe As List(Of String), starterWeight As Integer, flourWeight As Integer, waterWeight As Integer, schedule As Integer, creationDate As Date, hibernation As Boolean, hibernationType As String, ambientTemp As Double)
-        m_name = name
-        m_FeedingRecipe = feedingRecipe
-        m_StarterWeight = starterWeight
-        m_FlourWeight = flourWeight
-        m_WaterWeight = waterWeight
-        m_Schedule = schedule
-        m_CreationDate = creationDate
-        m_Hibernation = hibernation
-        m_HibernationType = hibernationType
-        m_AmbientTemp = ambientTemp
-    End Sub
-
-    Public Sub New(name As String, feedingRecipe As List(Of String), starterWeight As Integer, flourWeight As Integer, waterWeight As Integer, schedule As Integer, creationDate As Date, hibernation As Boolean, hibernationType As String, ambientTemp As Double, ambientHumidity As Double)
-        m_name = name
-        m_FeedingRecipe = feedingRecipe
-        m_StarterWeight = starterWeight
-        m_FlourWeight = flourWeight
-        m_WaterWeight = waterWeight
-        m_Schedule = schedule
-        m_CreationDate = creationDate
-        m_Hibernation = hibernation
-        m_HibernationType = hibernationType
-        m_AmbientTemp = ambientTemp
-        m_AmbientHumidity = ambientHumidity
-    End Sub
-
     Private m_name As String
     Private m_FeedingRecipe As New List(Of String)
     Private m_StarterWeight As Integer
@@ -159,44 +120,23 @@ Public Class Starter
         End Get
     End Property
 
-    Public Sub Save()
-        Dim writer As New System.Xml.Serialization.XmlSerializer(GetType(Starter))
-        Dim file As New System.IO.StreamWriter(
-            "C:\Users\tgilm\source\repos\Diarye\data\Starters.xml", True)
-        writer.Serialize(file, Me)
-        file.Close()
-    End Sub
-    Public Sub Load()
-        Dim reader As New System.Xml.Serialization.XmlSerializer(GetType(Starter))
-        Dim file As New System.IO.StreamReader(
-            "c:\temp\Starters.xml")
-        Dim overview As Starter
-        overview = CType(reader.Deserialize(file), Starter)
-        Console.WriteLine(overview.Name)
-        file.Close()
-    End Sub
-
     Public Overrides Function ToString() As String
         Return ("Name: " & Name & vbCrLf &
                 "Creation Date: " & CreationDate & vbCrLf &
-                "Recipe: " & FeedingRecipe.ToString() & vbCrLf &
+                "Recipe: " & Me.JoinElements() & vbCrLf &
                 "Hydration: " & StarterHydration & vbCrLf &
                 "Schedule: " & Schedule & vbCrLf &
                 "Hibernation Status: " & Hibernation & vbCrLf &
                 "Hibernation Type: " & HibernationType & vbCrLf &
                 "Ambient Temperature: " & AmbientTemp & vbCrLf &
-                "Ambient Humidity: " & AmbientHumidity & vbCrLf)
+                "Ambient Humidity: " & AmbientHumidity & vbCrLf & vbCrLf)
     End Function
 
-    Private Function Join(feedingRecipe As Array) As String
-        '
+    Private Function JoinElements() As String
         Dim S As String = ""
-        For Each item As String In feedingRecipe
+        For Each item As String In FeedingRecipe
             S &= item & ", "
         Next
         Return S
     End Function
-End Class
-
-Public Class StartersList : Inherits List(Of Starter)
 End Class

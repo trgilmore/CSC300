@@ -1,5 +1,4 @@
 ﻿Public Class frmRecipes
-
     Dim tfw As Integer = 0
     Dim tdw As Integer = 0
     Dim tsw As Integer = 0
@@ -7,6 +6,7 @@
     Dim tlw As Integer = 0
     Dim taw As Integer = 0
     Private Sub btnRecipeCancel_Click(sender As Object, e As EventArgs) Handles btnRecipeCancel.Click
+        ClearForm()
         Me.Hide()
     End Sub
 
@@ -26,6 +26,29 @@
                     Next
                 Catch ex As Microsoft.VisualBasic.
                             FileIO.MalformedLineException
+                    MsgBox("Line " & ex.Message &
+                    "is not valid and will be skipped.")
+                End Try
+            End While
+        End Using
+        Using StarterReader As New Microsoft.VisualBasic.
+            FileIO.TextFieldParser(
+               "C:\Users\tgilm\source\repos\Diarye\data\Starters.txt")
+            StarterReader.SetFieldWidths(-1)
+            StarterReader.TextFieldType = FileIO.FieldType.FixedWidth
+            Dim thisRow As String()
+            While Not StarterReader.EndOfData
+                Try
+                    thisRow = StarterReader.ReadFields()
+                    Dim currentField As String
+                    For Each currentField In thisRow
+                        If currentField.Contains("Name") Then
+                            lstRecipeLevain.Items.Add(currentField.Split(":").ElementAt(1))
+                        End If
+                    Next
+
+                Catch ex As Microsoft.VisualBasic.
+                                FileIO.MalformedLineException
                     MsgBox("Line " & ex.Message &
                     "is not valid and will be skipped.")
                 End Try
@@ -165,5 +188,33 @@
 
     Private Sub btnRecipeClear_Click(sender As Object, e As EventArgs) Handles btnRecipeClear.Click
         ClearForm()
+    End Sub
+
+    Private Sub btnRecipeSave_Click(sender As Object, e As EventArgs) Handles btnRecipeSave.Click
+        Dim recipe1 As New Recipe
+        recipe1.Title = txtRecipeTitle.Text
+        For Each flour In lstFlourRecipe.Items
+            recipe1.Flours.Add(flour)
+        Next
+        recipe1.FlourWeight = tfw
+        recipe1.SaltWeight = tsw
+        recipe1.RecipeWaterWeight = tww
+        recipe1.Levain = lstRecipeLevain.SelectedItem.ToString
+        recipe1.LevainWeight = tlw
+        recipe1.Addition1 = txtRecipeAddition1.Text
+        recipe1.AdditionWeight1 = nudRecipeAdditionWeight1.Value
+        recipe1.Addition2 = txtRecipeAddition2.Text
+        recipe1.AdditionWeight2 = nudRecipeAdditionWeight2.Value
+        recipe1.Addition3 = txtRecipeAddition3.Text
+        recipe1.AdditionWeight3 = nudRecipeAdditionWeight3.Value
+        recipe1.Addition4 = txtRecipeAddition4.Text
+        recipe1.AdditionWeight4 = nudRecipeAdditionWeight4.Value
+
+        My.Computer.FileSystem.WriteAllText("C:\Users\tgilm\source\repos\Diarye\data\Recipes.txt",
+        recipe1.ToString(), True)
+
+        frmDiaryeMain.lstRecipeTitles.Items.Add(recipe1.Title)
+        ClearForm()
+        Me.Hide()
     End Sub
 End Class

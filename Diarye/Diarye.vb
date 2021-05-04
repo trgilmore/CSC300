@@ -1,6 +1,4 @@
-﻿
-Imports System.IO
-Imports System.Xml.Serialization
+﻿Imports System.IO
 
 Public Class frmDiaryeMain
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnNewStarter.Click
@@ -12,20 +10,53 @@ Public Class frmDiaryeMain
     End Sub
 
     Private Sub frmDiaryeMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Dim reader As New System.Xml.Serialization.XmlSerializer(GetType(Starter))
-        'Dim file As New System.IO.StreamReader(
-        '    "C:\Users\tgilm\source\repos\Diarye\data\Starters.xml")
-        'Dim overview As Starter
-        'overview = CType(reader.Deserialize(file), Starter)
-        'file.Close()
+        LoadInfo()
     End Sub
 
-    Private Sub btnDeleteStarter_Click(sender As Object, e As EventArgs) Handles btnDeleteStarter.Click
-        lstvStarters.Items.RemoveAt(lstvStarters.SelectedIndices(0))
+    Private Sub btnDeleteStarter_Click(sender As Object, e As EventArgs) Handles btnViewStarters.Click
+        Process.Start("Notepad", "C:\Users\tgilm\source\repos\Diarye\data\Starters.txt")
     End Sub
 
     Private Sub btnBake_Click(sender As Object, e As EventArgs) Handles btnBake.Click
+        frmBakeLog.txtBakeStarter.Text = lstStarterNames.SelectedItem
+        frmBakeLog.txtBakeRecipe.Text = lstRecipeTitles.SelectedItem
         frmBakeLog.ShowDialog()
-        frmBakeLog.txtBakeRecipe.Text = lstvRecipes.SelectedItems.IndexOf(0).
+    End Sub
+
+    Private Sub btnViewLog_Click(sender As Object, e As EventArgs) Handles btnViewLog.Click
+        Process.Start("Notepad", "C:\Users\tgilm\source\repos\Diarye\data\BakeLog.txt")
+    End Sub
+
+    Private Sub btnViewRecipes_Click(sender As Object, e As EventArgs) Handles btnViewRecipes.Click
+        Process.Start("Notepad", "C:\Users\tgilm\source\repos\Diarye\data\Recipes.txt")
+    End Sub
+
+    Public Sub LoadInfo()
+        Dim fileReader As System.IO.StreamReader
+        fileReader =
+        My.Computer.FileSystem.OpenTextFileReader("C:\Users\tgilm\source\repos\Diarye\data\Starters.txt")
+        Dim stringReader As String()
+
+        Using fileReader
+            Do While fileReader.Peek <> -1
+                stringReader = fileReader.ReadLine.Split(":")
+                If (stringReader.Contains("Name")) Then
+                    lstStarterNames.Items.Add(stringReader.ElementAt(1))
+                End If
+            Loop
+        End Using
+
+        Dim RecipeReader As System.IO.StreamReader
+        RecipeReader =
+        My.Computer.FileSystem.OpenTextFileReader("C:\Users\tgilm\source\repos\Diarye\data\Recipes.txt")
+
+        Using RecipeReader
+            Do While RecipeReader.Peek <> -1
+                stringReader = RecipeReader.ReadLine.Split(":")
+                If (stringReader.Contains("Title")) Then
+                    lstRecipeTitles.Items.Add(stringReader.ElementAt(1))
+                End If
+            Loop
+        End Using
     End Sub
 End Class

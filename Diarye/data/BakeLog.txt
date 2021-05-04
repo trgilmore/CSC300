@@ -1,1 +1,26 @@
-﻿
+﻿Bake Date: 5/4/2021 11:01:36 AM
+Starter Used: Man-dough-lorian
+Recipe Used: Country Loaf
+Autolyse: True
+Autolyse Time: 60
+Gluten Development Method: Stretch and Fold
+Gluten Devolopment Count: 6
+Gluten Development Interval (minutes): 20
+Bulk Ferment Time: 240
+Ambient Temperature: 75
+Ambient Humidity: 40
+Cold Proof: True
+Cold Proof Time: 12
+Phase 1 Temp: 500
+Phase 1 Time: 21
+Phase 2 Temp: 450
+Phase 2 Time: 17
+Rise Rating: 8
+Crumb Rating: 10
+Crust Rating: 9
+Color Rating: 10
+Taste Rating: 8
+Has Ear: True
+Has Blistering: True
+Success?: True
+

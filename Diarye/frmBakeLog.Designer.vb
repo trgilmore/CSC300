@@ -22,16 +22,13 @@ Partial Class frmBakeLog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.chkAutolyse = New System.Windows.Forms.CheckBox()
-        Me.tmrAutolyse = New System.Windows.Forms.Timer(Me.components)
         Me.lblGlutenDevelopment = New System.Windows.Forms.Label()
         Me.rbCoil = New System.Windows.Forms.RadioButton()
         Me.rbStretchAndFold = New System.Windows.Forms.RadioButton()
         Me.rbLamination = New System.Windows.Forms.RadioButton()
         Me.lblGlutenDevInterval = New System.Windows.Forms.Label()
         Me.nudInterval = New System.Windows.Forms.NumericUpDown()
-        Me.tmrBulkFerment = New System.Windows.Forms.Timer(Me.components)
         Me.nudDevCount = New System.Windows.Forms.NumericUpDown()
         Me.lblDevCount = New System.Windows.Forms.Label()
         Me.chkColdProof = New System.Windows.Forms.CheckBox()
@@ -40,7 +37,7 @@ Partial Class frmBakeLog
         Me.nudAutolyseTime = New System.Windows.Forms.NumericUpDown()
         Me.lblAutolyseTime = New System.Windows.Forms.Label()
         Me.lblBulkFermentTime = New System.Windows.Forms.Label()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
+        Me.nudBulkFerment = New System.Windows.Forms.NumericUpDown()
         Me.lblPhase1Bake = New System.Windows.Forms.Label()
         Me.chkPhase2Bake = New System.Windows.Forms.CheckBox()
         Me.lblPhase1Temp = New System.Windows.Forms.Label()
@@ -59,33 +56,35 @@ Partial Class frmBakeLog
         Me.btnClearBakeLog = New System.Windows.Forms.Button()
         Me.btnLogBake = New System.Windows.Forms.Button()
         Me.lblTotalBakeTime = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtTotalBakeTime = New System.Windows.Forms.TextBox()
         Me.lblBakeStarter = New System.Windows.Forms.Label()
         Me.txtBakeStarter = New System.Windows.Forms.TextBox()
         Me.txtBakeRecipe = New System.Windows.Forms.TextBox()
         Me.lblBakeRecipe = New System.Windows.Forms.Label()
         Me.pnlResults = New System.Windows.Forms.Panel()
-        Me.lblResults = New System.Windows.Forms.Label()
-        Me.lblRate = New System.Windows.Forms.Label()
-        Me.rbSuccess = New System.Windows.Forms.RadioButton()
-        Me.rbFailure = New System.Windows.Forms.RadioButton()
-        Me.lblRise = New System.Windows.Forms.Label()
-        Me.lblCrust = New System.Windows.Forms.Label()
-        Me.lblCrumb = New System.Windows.Forms.Label()
-        Me.lblColor = New System.Windows.Forms.Label()
-        Me.lblTaste = New System.Windows.Forms.Label()
-        Me.chkHasEar = New System.Windows.Forms.CheckBox()
-        Me.chkHasBlistering = New System.Windows.Forms.CheckBox()
-        Me.nudRise = New System.Windows.Forms.NumericUpDown()
-        Me.nudCrust = New System.Windows.Forms.NumericUpDown()
-        Me.nudCrumb = New System.Windows.Forms.NumericUpDown()
-        Me.nudColor = New System.Windows.Forms.NumericUpDown()
         Me.nudTaste = New System.Windows.Forms.NumericUpDown()
+        Me.nudColor = New System.Windows.Forms.NumericUpDown()
+        Me.nudCrumb = New System.Windows.Forms.NumericUpDown()
+        Me.nudCrust = New System.Windows.Forms.NumericUpDown()
+        Me.nudRise = New System.Windows.Forms.NumericUpDown()
+        Me.chkHasBlistering = New System.Windows.Forms.CheckBox()
+        Me.chkHasEar = New System.Windows.Forms.CheckBox()
+        Me.lblTaste = New System.Windows.Forms.Label()
+        Me.lblColor = New System.Windows.Forms.Label()
+        Me.lblCrumb = New System.Windows.Forms.Label()
+        Me.lblCrust = New System.Windows.Forms.Label()
+        Me.lblRise = New System.Windows.Forms.Label()
+        Me.rbFailure = New System.Windows.Forms.RadioButton()
+        Me.rbSuccess = New System.Windows.Forms.RadioButton()
+        Me.lblRate = New System.Windows.Forms.Label()
+        Me.lblResults = New System.Windows.Forms.Label()
+        Me.dtpBakeLog = New System.Windows.Forms.DateTimePicker()
+        Me.lblBakeDate = New System.Windows.Forms.Label()
         CType(Me.nudInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudDevCount, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudColdProofHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudAutolyseTime, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudBulkFerment, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudPhase1Temp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudPhase1Time, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudPhase2Time, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,11 +92,11 @@ Partial Class frmBakeLog
         CType(Me.nudBFAmbTemp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudBFAmbHumidity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlResults.SuspendLayout()
-        CType(Me.nudRise, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudCrust, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudCrumb, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudColor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudTaste, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudColor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudCrumb, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudCrust, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudRise, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'chkAutolyse
@@ -239,14 +238,14 @@ Partial Class frmBakeLog
         Me.lblBulkFermentTime.TabIndex = 22
         Me.lblBulkFermentTime.Text = "Bulk Ferment Time (in minutes)"
         '
-        'NumericUpDown2
+        'nudBulkFerment
         '
-        Me.NumericUpDown2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown2.Location = New System.Drawing.Point(393, 28)
-        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {720, 0, 0, 0})
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(66, 29)
-        Me.NumericUpDown2.TabIndex = 21
+        Me.nudBulkFerment.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudBulkFerment.Location = New System.Drawing.Point(393, 28)
+        Me.nudBulkFerment.Maximum = New Decimal(New Integer() {720, 0, 0, 0})
+        Me.nudBulkFerment.Name = "nudBulkFerment"
+        Me.nudBulkFerment.Size = New System.Drawing.Size(66, 29)
+        Me.nudBulkFerment.TabIndex = 21
         '
         'lblPhase1Bake
         '
@@ -375,7 +374,6 @@ Partial Class frmBakeLog
         Me.nudBFAmbTemp.Name = "nudBFAmbTemp"
         Me.nudBFAmbTemp.Size = New System.Drawing.Size(66, 24)
         Me.nudBFAmbTemp.TabIndex = 35
-        Me.nudBFAmbTemp.Value = New Decimal(New Integer() {75, 0, 0, 0})
         '
         'nudBFAmbHumidity
         '
@@ -425,20 +423,20 @@ Partial Class frmBakeLog
         Me.lblTotalBakeTime.TabIndex = 40
         Me.lblTotalBakeTime.Text = "Total Bake Time:"
         '
-        'TextBox1
+        'txtTotalBakeTime
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(693, 171)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(66, 24)
-        Me.TextBox1.TabIndex = 41
+        Me.txtTotalBakeTime.Enabled = False
+        Me.txtTotalBakeTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalBakeTime.Location = New System.Drawing.Point(693, 171)
+        Me.txtTotalBakeTime.Name = "txtTotalBakeTime"
+        Me.txtTotalBakeTime.Size = New System.Drawing.Size(66, 24)
+        Me.txtTotalBakeTime.TabIndex = 41
         '
         'lblBakeStarter
         '
         Me.lblBakeStarter.AutoSize = True
         Me.lblBakeStarter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBakeStarter.Location = New System.Drawing.Point(55, 34)
+        Me.lblBakeStarter.Location = New System.Drawing.Point(55, 93)
         Me.lblBakeStarter.Name = "lblBakeStarter"
         Me.lblBakeStarter.Size = New System.Drawing.Size(58, 20)
         Me.lblBakeStarter.TabIndex = 42
@@ -447,7 +445,7 @@ Partial Class frmBakeLog
         'txtBakeStarter
         '
         Me.txtBakeStarter.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBakeStarter.Location = New System.Drawing.Point(35, 57)
+        Me.txtBakeStarter.Location = New System.Drawing.Point(35, 116)
         Me.txtBakeStarter.Name = "txtBakeStarter"
         Me.txtBakeStarter.Size = New System.Drawing.Size(100, 26)
         Me.txtBakeStarter.TabIndex = 43
@@ -455,7 +453,7 @@ Partial Class frmBakeLog
         'txtBakeRecipe
         '
         Me.txtBakeRecipe.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBakeRecipe.Location = New System.Drawing.Point(35, 137)
+        Me.txtBakeRecipe.Location = New System.Drawing.Point(35, 184)
         Me.txtBakeRecipe.Name = "txtBakeRecipe"
         Me.txtBakeRecipe.Size = New System.Drawing.Size(100, 26)
         Me.txtBakeRecipe.TabIndex = 45
@@ -464,7 +462,7 @@ Partial Class frmBakeLog
         '
         Me.lblBakeRecipe.AutoSize = True
         Me.lblBakeRecipe.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBakeRecipe.Location = New System.Drawing.Point(55, 114)
+        Me.lblBakeRecipe.Location = New System.Drawing.Point(55, 161)
         Me.lblBakeRecipe.Name = "lblBakeRecipe"
         Me.lblBakeRecipe.Size = New System.Drawing.Size(59, 20)
         Me.lblBakeRecipe.TabIndex = 44
@@ -493,36 +491,127 @@ Partial Class frmBakeLog
         Me.pnlResults.Size = New System.Drawing.Size(799, 148)
         Me.pnlResults.TabIndex = 46
         '
-        'lblResults
+        'nudTaste
         '
-        Me.lblResults.AutoSize = True
-        Me.lblResults.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResults.Location = New System.Drawing.Point(369, 228)
-        Me.lblResults.Name = "lblResults"
-        Me.lblResults.Size = New System.Drawing.Size(63, 20)
-        Me.lblResults.TabIndex = 47
-        Me.lblResults.Text = "Results"
+        Me.nudTaste.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudTaste.Location = New System.Drawing.Point(456, 58)
+        Me.nudTaste.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nudTaste.Name = "nudTaste"
+        Me.nudTaste.Size = New System.Drawing.Size(38, 23)
+        Me.nudTaste.TabIndex = 14
+        Me.nudTaste.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
-        'lblRate
+        'nudColor
         '
-        Me.lblRate.AutoSize = True
-        Me.lblRate.Location = New System.Drawing.Point(269, 0)
-        Me.lblRate.Name = "lblRate"
-        Me.lblRate.Size = New System.Drawing.Size(258, 13)
-        Me.lblRate.TabIndex = 0
-        Me.lblRate.Text = "Please rate the following (0 = Poor, 10 = Outstanding)"
+        Me.nudColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudColor.Location = New System.Drawing.Point(351, 58)
+        Me.nudColor.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nudColor.Name = "nudColor"
+        Me.nudColor.Size = New System.Drawing.Size(38, 23)
+        Me.nudColor.TabIndex = 13
+        Me.nudColor.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
-        'rbSuccess
+        'nudCrumb
         '
-        Me.rbSuccess.AutoSize = True
-        Me.rbSuccess.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbSuccess.Location = New System.Drawing.Point(691, 34)
-        Me.rbSuccess.Name = "rbSuccess"
-        Me.rbSuccess.Size = New System.Drawing.Size(79, 21)
-        Me.rbSuccess.TabIndex = 1
-        Me.rbSuccess.TabStop = True
-        Me.rbSuccess.Text = "Success"
-        Me.rbSuccess.UseVisualStyleBackColor = True
+        Me.nudCrumb.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudCrumb.Location = New System.Drawing.Point(246, 58)
+        Me.nudCrumb.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nudCrumb.Name = "nudCrumb"
+        Me.nudCrumb.Size = New System.Drawing.Size(38, 23)
+        Me.nudCrumb.TabIndex = 12
+        Me.nudCrumb.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        '
+        'nudCrust
+        '
+        Me.nudCrust.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudCrust.Location = New System.Drawing.Point(141, 58)
+        Me.nudCrust.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nudCrust.Name = "nudCrust"
+        Me.nudCrust.Size = New System.Drawing.Size(38, 23)
+        Me.nudCrust.TabIndex = 11
+        Me.nudCrust.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        '
+        'nudRise
+        '
+        Me.nudRise.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudRise.Location = New System.Drawing.Point(36, 58)
+        Me.nudRise.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
+        Me.nudRise.Name = "nudRise"
+        Me.nudRise.Size = New System.Drawing.Size(38, 23)
+        Me.nudRise.TabIndex = 10
+        Me.nudRise.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        '
+        'chkHasBlistering
+        '
+        Me.chkHasBlistering.AutoSize = True
+        Me.chkHasBlistering.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkHasBlistering.Location = New System.Drawing.Point(554, 58)
+        Me.chkHasBlistering.Name = "chkHasBlistering"
+        Me.chkHasBlistering.Size = New System.Drawing.Size(114, 21)
+        Me.chkHasBlistering.TabIndex = 9
+        Me.chkHasBlistering.Text = "Has Blistering"
+        Me.chkHasBlistering.UseVisualStyleBackColor = True
+        '
+        'chkHasEar
+        '
+        Me.chkHasEar.AutoSize = True
+        Me.chkHasEar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkHasEar.Location = New System.Drawing.Point(554, 35)
+        Me.chkHasEar.Name = "chkHasEar"
+        Me.chkHasEar.Size = New System.Drawing.Size(78, 21)
+        Me.chkHasEar.TabIndex = 8
+        Me.chkHasEar.Text = "Has Ear"
+        Me.chkHasEar.UseVisualStyleBackColor = True
+        '
+        'lblTaste
+        '
+        Me.lblTaste.AutoSize = True
+        Me.lblTaste.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTaste.Location = New System.Drawing.Point(453, 34)
+        Me.lblTaste.Name = "lblTaste"
+        Me.lblTaste.Size = New System.Drawing.Size(44, 17)
+        Me.lblTaste.TabIndex = 7
+        Me.lblTaste.Text = "Taste"
+        '
+        'lblColor
+        '
+        Me.lblColor.AutoSize = True
+        Me.lblColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblColor.Location = New System.Drawing.Point(348, 34)
+        Me.lblColor.Name = "lblColor"
+        Me.lblColor.Size = New System.Drawing.Size(41, 17)
+        Me.lblColor.TabIndex = 6
+        Me.lblColor.Text = "Color"
+        '
+        'lblCrumb
+        '
+        Me.lblCrumb.AutoSize = True
+        Me.lblCrumb.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCrumb.Location = New System.Drawing.Point(243, 34)
+        Me.lblCrumb.Name = "lblCrumb"
+        Me.lblCrumb.Size = New System.Drawing.Size(49, 17)
+        Me.lblCrumb.TabIndex = 5
+        Me.lblCrumb.Text = "Crumb"
+        '
+        'lblCrust
+        '
+        Me.lblCrust.AutoSize = True
+        Me.lblCrust.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCrust.Location = New System.Drawing.Point(138, 34)
+        Me.lblCrust.Name = "lblCrust"
+        Me.lblCrust.Size = New System.Drawing.Size(41, 17)
+        Me.lblCrust.TabIndex = 4
+        Me.lblCrust.Text = "Crust"
+        '
+        'lblRise
+        '
+        Me.lblRise.AutoSize = True
+        Me.lblRise.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRise.Location = New System.Drawing.Point(33, 34)
+        Me.lblRise.Name = "lblRise"
+        Me.lblRise.Size = New System.Drawing.Size(36, 17)
+        Me.lblRise.TabIndex = 3
+        Me.lblRise.Text = "Rise"
         '
         'rbFailure
         '
@@ -536,140 +625,69 @@ Partial Class frmBakeLog
         Me.rbFailure.Text = "Failure"
         Me.rbFailure.UseVisualStyleBackColor = True
         '
-        'lblRise
+        'rbSuccess
         '
-        Me.lblRise.AutoSize = True
-        Me.lblRise.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRise.Location = New System.Drawing.Point(33, 34)
-        Me.lblRise.Name = "lblRise"
-        Me.lblRise.Size = New System.Drawing.Size(36, 17)
-        Me.lblRise.TabIndex = 3
-        Me.lblRise.Text = "Rise"
+        Me.rbSuccess.AutoSize = True
+        Me.rbSuccess.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbSuccess.Location = New System.Drawing.Point(691, 34)
+        Me.rbSuccess.Name = "rbSuccess"
+        Me.rbSuccess.Size = New System.Drawing.Size(79, 21)
+        Me.rbSuccess.TabIndex = 1
+        Me.rbSuccess.TabStop = True
+        Me.rbSuccess.Text = "Success"
+        Me.rbSuccess.UseVisualStyleBackColor = True
         '
-        'lblCrust
+        'lblRate
         '
-        Me.lblCrust.AutoSize = True
-        Me.lblCrust.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCrust.Location = New System.Drawing.Point(138, 34)
-        Me.lblCrust.Name = "lblCrust"
-        Me.lblCrust.Size = New System.Drawing.Size(41, 17)
-        Me.lblCrust.TabIndex = 4
-        Me.lblCrust.Text = "Crust"
+        Me.lblRate.AutoSize = True
+        Me.lblRate.Location = New System.Drawing.Point(269, 0)
+        Me.lblRate.Name = "lblRate"
+        Me.lblRate.Size = New System.Drawing.Size(258, 13)
+        Me.lblRate.TabIndex = 0
+        Me.lblRate.Text = "Please rate the following (0 = Poor, 10 = Outstanding)"
         '
-        'lblCrumb
+        'lblResults
         '
-        Me.lblCrumb.AutoSize = True
-        Me.lblCrumb.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCrumb.Location = New System.Drawing.Point(243, 34)
-        Me.lblCrumb.Name = "lblCrumb"
-        Me.lblCrumb.Size = New System.Drawing.Size(49, 17)
-        Me.lblCrumb.TabIndex = 5
-        Me.lblCrumb.Text = "Crumb"
+        Me.lblResults.AutoSize = True
+        Me.lblResults.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResults.Location = New System.Drawing.Point(369, 228)
+        Me.lblResults.Name = "lblResults"
+        Me.lblResults.Size = New System.Drawing.Size(63, 20)
+        Me.lblResults.TabIndex = 47
+        Me.lblResults.Text = "Results"
         '
-        'lblColor
+        'dtpBakeLog
         '
-        Me.lblColor.AutoSize = True
-        Me.lblColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblColor.Location = New System.Drawing.Point(348, 34)
-        Me.lblColor.Name = "lblColor"
-        Me.lblColor.Size = New System.Drawing.Size(41, 17)
-        Me.lblColor.TabIndex = 6
-        Me.lblColor.Text = "Color"
+        Me.dtpBakeLog.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpBakeLog.Location = New System.Drawing.Point(33, 50)
+        Me.dtpBakeLog.Name = "dtpBakeLog"
+        Me.dtpBakeLog.Size = New System.Drawing.Size(102, 20)
+        Me.dtpBakeLog.TabIndex = 48
         '
-        'lblTaste
+        'lblBakeDate
         '
-        Me.lblTaste.AutoSize = True
-        Me.lblTaste.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTaste.Location = New System.Drawing.Point(453, 34)
-        Me.lblTaste.Name = "lblTaste"
-        Me.lblTaste.Size = New System.Drawing.Size(44, 17)
-        Me.lblTaste.TabIndex = 7
-        Me.lblTaste.Text = "Taste"
-        '
-        'chkHasEar
-        '
-        Me.chkHasEar.AutoSize = True
-        Me.chkHasEar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkHasEar.Location = New System.Drawing.Point(554, 35)
-        Me.chkHasEar.Name = "chkHasEar"
-        Me.chkHasEar.Size = New System.Drawing.Size(78, 21)
-        Me.chkHasEar.TabIndex = 8
-        Me.chkHasEar.Text = "Has Ear"
-        Me.chkHasEar.UseVisualStyleBackColor = True
-        '
-        'chkHasBlistering
-        '
-        Me.chkHasBlistering.AutoSize = True
-        Me.chkHasBlistering.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkHasBlistering.Location = New System.Drawing.Point(554, 58)
-        Me.chkHasBlistering.Name = "chkHasBlistering"
-        Me.chkHasBlistering.Size = New System.Drawing.Size(114, 21)
-        Me.chkHasBlistering.TabIndex = 9
-        Me.chkHasBlistering.Text = "Has Blistering"
-        Me.chkHasBlistering.UseVisualStyleBackColor = True
-        '
-        'nudRise
-        '
-        Me.nudRise.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudRise.Location = New System.Drawing.Point(36, 58)
-        Me.nudRise.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.nudRise.Name = "nudRise"
-        Me.nudRise.Size = New System.Drawing.Size(38, 23)
-        Me.nudRise.TabIndex = 10
-        Me.nudRise.Value = New Decimal(New Integer() {5, 0, 0, 0})
-        '
-        'nudCrust
-        '
-        Me.nudCrust.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudCrust.Location = New System.Drawing.Point(141, 58)
-        Me.nudCrust.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.nudCrust.Name = "nudCrust"
-        Me.nudCrust.Size = New System.Drawing.Size(38, 23)
-        Me.nudCrust.TabIndex = 11
-        Me.nudCrust.Value = New Decimal(New Integer() {5, 0, 0, 0})
-        '
-        'nudCrumb
-        '
-        Me.nudCrumb.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudCrumb.Location = New System.Drawing.Point(246, 58)
-        Me.nudCrumb.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.nudCrumb.Name = "nudCrumb"
-        Me.nudCrumb.Size = New System.Drawing.Size(38, 23)
-        Me.nudCrumb.TabIndex = 12
-        Me.nudCrumb.Value = New Decimal(New Integer() {5, 0, 0, 0})
-        '
-        'nudColor
-        '
-        Me.nudColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudColor.Location = New System.Drawing.Point(351, 58)
-        Me.nudColor.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.nudColor.Name = "nudColor"
-        Me.nudColor.Size = New System.Drawing.Size(38, 23)
-        Me.nudColor.TabIndex = 13
-        Me.nudColor.Value = New Decimal(New Integer() {5, 0, 0, 0})
-        '
-        'nudTaste
-        '
-        Me.nudTaste.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudTaste.Location = New System.Drawing.Point(456, 58)
-        Me.nudTaste.Maximum = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.nudTaste.Name = "nudTaste"
-        Me.nudTaste.Size = New System.Drawing.Size(38, 23)
-        Me.nudTaste.TabIndex = 14
-        Me.nudTaste.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.lblBakeDate.AutoSize = True
+        Me.lblBakeDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBakeDate.Location = New System.Drawing.Point(55, 26)
+        Me.lblBakeDate.Name = "lblBakeDate"
+        Me.lblBakeDate.Size = New System.Drawing.Size(44, 20)
+        Me.lblBakeDate.TabIndex = 49
+        Me.lblBakeDate.Text = "Date"
         '
         'frmBakeLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblBakeDate)
+        Me.Controls.Add(Me.dtpBakeLog)
         Me.Controls.Add(Me.lblResults)
         Me.Controls.Add(Me.pnlResults)
         Me.Controls.Add(Me.txtBakeRecipe)
         Me.Controls.Add(Me.lblBakeRecipe)
         Me.Controls.Add(Me.txtBakeStarter)
         Me.Controls.Add(Me.lblBakeStarter)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtTotalBakeTime)
         Me.Controls.Add(Me.lblTotalBakeTime)
         Me.Controls.Add(Me.btnCancelBake)
         Me.Controls.Add(Me.btnClearBakeLog)
@@ -689,7 +707,7 @@ Partial Class frmBakeLog
         Me.Controls.Add(Me.chkPhase2Bake)
         Me.Controls.Add(Me.lblPhase1Bake)
         Me.Controls.Add(Me.lblBulkFermentTime)
-        Me.Controls.Add(Me.NumericUpDown2)
+        Me.Controls.Add(Me.nudBulkFerment)
         Me.Controls.Add(Me.lblAutolyseTime)
         Me.Controls.Add(Me.nudAutolyseTime)
         Me.Controls.Add(Me.lblColdProofHours)
@@ -710,7 +728,7 @@ Partial Class frmBakeLog
         CType(Me.nudDevCount, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudColdProofHours, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudAutolyseTime, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudBulkFerment, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudPhase1Temp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudPhase1Time, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudPhase2Time, System.ComponentModel.ISupportInitialize).EndInit()
@@ -719,25 +737,23 @@ Partial Class frmBakeLog
         CType(Me.nudBFAmbHumidity, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlResults.ResumeLayout(False)
         Me.pnlResults.PerformLayout()
-        CType(Me.nudRise, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudCrust, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudCrumb, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudColor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudTaste, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudColor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudCrumb, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudCrust, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudRise, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents chkAutolyse As CheckBox
-    Friend WithEvents tmrAutolyse As Timer
     Friend WithEvents lblGlutenDevelopment As Label
     Friend WithEvents rbCoil As RadioButton
     Friend WithEvents rbStretchAndFold As RadioButton
     Friend WithEvents rbLamination As RadioButton
     Friend WithEvents lblGlutenDevInterval As Label
     Friend WithEvents nudInterval As NumericUpDown
-    Friend WithEvents tmrBulkFerment As Timer
     Friend WithEvents nudDevCount As NumericUpDown
     Friend WithEvents lblDevCount As Label
     Friend WithEvents chkColdProof As CheckBox
@@ -746,7 +762,7 @@ Partial Class frmBakeLog
     Friend WithEvents nudAutolyseTime As NumericUpDown
     Friend WithEvents lblAutolyseTime As Label
     Friend WithEvents lblBulkFermentTime As Label
-    Friend WithEvents NumericUpDown2 As NumericUpDown
+    Friend WithEvents nudBulkFerment As NumericUpDown
     Friend WithEvents lblPhase1Bake As Label
     Friend WithEvents chkPhase2Bake As CheckBox
     Friend WithEvents lblPhase1Temp As Label
@@ -765,7 +781,7 @@ Partial Class frmBakeLog
     Friend WithEvents btnClearBakeLog As Button
     Friend WithEvents btnLogBake As Button
     Friend WithEvents lblTotalBakeTime As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtTotalBakeTime As TextBox
     Friend WithEvents lblBakeStarter As Label
     Friend WithEvents txtBakeStarter As TextBox
     Friend WithEvents txtBakeRecipe As TextBox
@@ -787,4 +803,6 @@ Partial Class frmBakeLog
     Friend WithEvents lblCrumb As Label
     Friend WithEvents lblCrust As Label
     Friend WithEvents lblRise As Label
+    Friend WithEvents dtpBakeLog As DateTimePicker
+    Friend WithEvents lblBakeDate As Label
 End Class

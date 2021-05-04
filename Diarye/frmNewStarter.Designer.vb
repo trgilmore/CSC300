@@ -162,12 +162,12 @@ Partial Class frmStarter
         'lblStartRecipeFlourPercent
         '
         Me.lblStartRecipeFlourPercent.AutoSize = True
-        Me.lblStartRecipeFlourPercent.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStartRecipeFlourPercent.Location = New System.Drawing.Point(153, 137)
+        Me.lblStartRecipeFlourPercent.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStartRecipeFlourPercent.Location = New System.Drawing.Point(143, 140)
         Me.lblStartRecipeFlourPercent.Name = "lblStartRecipeFlourPercent"
-        Me.lblStartRecipeFlourPercent.Size = New System.Drawing.Size(23, 20)
+        Me.lblStartRecipeFlourPercent.Size = New System.Drawing.Size(60, 15)
         Me.lblStartRecipeFlourPercent.TabIndex = 11
-        Me.lblStartRecipeFlourPercent.Text = "%"
+        Me.lblStartRecipeFlourPercent.Text = "Weight(g)"
         '
         'txtStarterRecipeFlourPercent
         '
@@ -211,7 +211,7 @@ Partial Class frmStarter
         Me.lblRecipeWeights.Name = "lblRecipeWeights"
         Me.lblRecipeWeights.Size = New System.Drawing.Size(114, 26)
         Me.lblRecipeWeights.TabIndex = 16
-        Me.lblRecipeWeights.Text = "Weight in grams" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Starter : Water : Flour)"
+        Me.lblRecipeWeights.Text = "Weight(g)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Starter : Water : Flour)"
         Me.lblRecipeWeights.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'lblRatioSep1

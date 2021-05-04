@@ -30,11 +30,10 @@ Public Class frmStarter
         starter1.AmbientTemp = CInt(txtAmbTemp.Text)
         starter1.AmbientHumidity = CInt(txtAmbHumidity.Text)
 
-
-
         My.Computer.FileSystem.WriteAllText("C:\Users\tgilm\source\repos\Diarye\data\Starters.txt",
         starter1.ToString(), True)
 
+        frmDiaryeMain.lstStarterNames.Items.Add(starter1.Name)
         clearForm()
         Me.Hide()
     End Sub
@@ -55,12 +54,13 @@ Public Class frmStarter
     End Sub
 
     Private Sub btnCancelStarter_Click(sender As Object, e As EventArgs) Handles btnCancelStarter.Click
+        clearForm()
         Me.Hide()
     End Sub
 
     Private Sub btnAddToFeedingRecipe_Click(sender As Object, e As EventArgs) Handles btnAddToFeedingRecipe.Click
         If lstStarterRecipeFlour.SelectedIndex >= 0 Then
-            lstFeedingRecipe.Items.Add(lstStarterRecipeFlour.SelectedItem & " -- " & txtStarterRecipeFlourPercent.Text & "%")
+            lstFeedingRecipe.Items.Add(lstStarterRecipeFlour.SelectedItem & " -- " & txtStarterRecipeFlourPercent.Text & "g")
         Else
             MsgBox("Please select a flour")
         End If
@@ -84,7 +84,6 @@ Public Class frmStarter
             txtStarterRatio.Text = s / f
             txtStarterWaterRatio.Text = w / f
         End If
-
     End Sub
 
     Private Sub frmStarter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -108,7 +107,6 @@ Public Class frmStarter
                 End Try
             End While
         End Using
-
     End Sub
 
     Private Sub nudStarterWeight_ValueChanged(sender As Object, e As EventArgs) Handles nudStarterWeight.ValueChanged, nudStarterWaterWeight.ValueChanged, nudStarterFlourWeight.ValueChanged
@@ -147,7 +145,6 @@ Public Class frmStarter
         chkHibernation.Checked = False
         chkAmbTemp.Checked = False
         chkAmbHumidity.Checked = False
-
     End Sub
 
     Private Sub btnClearStarter_Click(sender As Object, e As EventArgs) Handles btnClearStarter.Click
